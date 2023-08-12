@@ -13,6 +13,10 @@
 		FF384B5C2A878AA900DE8433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF384B5A2A878AA900DE8433 /* Main.storyboard */; };
 		FF384B5E2A878AAB00DE8433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF384B5D2A878AAB00DE8433 /* Assets.xcassets */; };
 		FF384B612A878AAB00DE8433 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF384B5F2A878AAB00DE8433 /* LaunchScreen.storyboard */; };
+		FF384B712A8793A100DE8433 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B702A8793A100DE8433 /* FilterType.swift */; };
+		FF384B732A87945200DE8433 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B722A87945200DE8433 /* FilterViewModel.swift */; };
+		FF384B752A8799AE00DE8433 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = FF384B742A8799AE00DE8433 /* gaussianBlur.metal */; };
+		FF384B772A8799E900DE8433 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B762A8799E900DE8433 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		FF384B5D2A878AAB00DE8433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF384B602A878AAB00DE8433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF384B622A878AAB00DE8433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF384B702A8793A100DE8433 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
+		FF384B722A87945200DE8433 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		FF384B742A8799AE00DE8433 /* gaussianBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = gaussianBlur.metal; sourceTree = "<group>"; };
+		FF384B762A8799E900DE8433 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,67 @@
 		FF384B532A878AA900DE8433 /* Apply Filter Assignment */ = {
 			isa = PBXGroup;
 			children = (
-				FF384B542A878AA900DE8433 /* AppDelegate.swift */,
-				FF384B562A878AA900DE8433 /* SceneDelegate.swift */,
+				FF384B6D2A878C4400DE8433 /* Models */,
+				FF384B6C2A878C3F00DE8433 /* ViewModels */,
+				FF384B6B2A878C3900DE8433 /* Views */,
+				FF384B6A2A878B3D00DE8433 /* Shaders */,
+				FF384B692A878B3000DE8433 /* Resources */,
+				FF384B682A878B1F00DE8433 /* Supporting Files */,
 				FF384B582A878AA900DE8433 /* ViewController.swift */,
 				FF384B5A2A878AA900DE8433 /* Main.storyboard */,
-				FF384B5D2A878AAB00DE8433 /* Assets.xcassets */,
 				FF384B5F2A878AAB00DE8433 /* LaunchScreen.storyboard */,
 				FF384B622A878AAB00DE8433 /* Info.plist */,
 			);
 			path = "Apply Filter Assignment";
+			sourceTree = "<group>";
+		};
+		FF384B682A878B1F00DE8433 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF384B542A878AA900DE8433 /* AppDelegate.swift */,
+				FF384B562A878AA900DE8433 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF384B692A878B3000DE8433 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF384B5D2A878AAB00DE8433 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FF384B6A2A878B3D00DE8433 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				FF384B742A8799AE00DE8433 /* gaussianBlur.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		FF384B6B2A878C3900DE8433 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF384B762A8799E900DE8433 /* FilterViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF384B6C2A878C3F00DE8433 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FF384B722A87945200DE8433 /* FilterViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FF384B6D2A878C4400DE8433 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF384B702A8793A100DE8433 /* FilterType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF384B772A8799E900DE8433 /* FilterViewController.swift in Sources */,
 				FF384B592A878AA900DE8433 /* ViewController.swift in Sources */,
 				FF384B552A878AA900DE8433 /* AppDelegate.swift in Sources */,
+				FF384B732A87945200DE8433 /* FilterViewModel.swift in Sources */,
 				FF384B572A878AA900DE8433 /* SceneDelegate.swift in Sources */,
+				FF384B712A8793A100DE8433 /* FilterType.swift in Sources */,
+				FF384B752A8799AE00DE8433 /* gaussianBlur.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2RD7CMC4B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Apply Filter Assignment/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,6 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2RD7CMC4B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Apply Filter Assignment/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
