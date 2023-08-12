@@ -16,7 +16,6 @@ class FilterViewModel {
         case artistic = "Artistic"
     }
     
-    
     enum FilterType: String {
         case sepia = "Sepia"
         case gaussianBlur = "Gaussian Blur"
@@ -31,31 +30,80 @@ class FilterViewModel {
     
     let device = MTLCreateSystemDefaultDevice()!
     let metalQueue = DispatchQueue(label: "MetalQueue")
+    lazy var library: MTLLibrary = {
+        return device.makeDefaultLibrary()!
+    }()
+    
+    lazy var sepiaKernel: MTLFunction = {
+        return library.makeFunction(name: "applySepiaFilter")!
+    }()
     
     func applyFilter(_ filter: FilterType, to ciImage: CIImage) -> UIImage? {
+        // Convert CIImage to a Metal texture
+        let ciContext = CIContext(mtlDevice: device)
+        guard let cgImage = ciContext.createCGImage(ciImage, from: ciImage.extent),
+              let metalTexture = try? MTKTextureLoader(device: device).newTexture(cgImage: cgImage, options: nil) else {
+            return nil
+        }
 
-        var outputImage: CIImage?
+        // Create an output texture with appropriate usage flags
+        let outputTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: metalTexture.pixelFormat,
+                                                                               width: metalTexture.width,
+                                                                               height: metalTexture.height,
+                                                                               mipmapped: false)
+        outputTextureDescriptor.usage = [.shaderRead, .shaderWrite] // Set the correct usage flags
+
+        guard let outputTexture = device.makeTexture(descriptor: outputTextureDescriptor) else {
+            return nil
+        }
+
+        // Create a Metal compute pipeline and encoder for the selected filter kernel
+        let kernelFunction: MTLFunction
 
         switch filter {
         case .sepia:
-            outputImage = applySepiaFilter(to: ciImage)
+            kernelFunction = sepiaKernel
         case .gaussianBlur:
-            outputImage = applyGaussianBlurFilter(to: ciImage)
+            kernelFunction = sepiaKernel
         case .colorInvert:
-            outputImage = applyColorInvertFilter(to: ciImage)
+            kernelFunction = sepiaKernel
         case .bloom:
-            outputImage = applyBloomFilter(to: ciImage)
+            kernelFunction = sepiaKernel
         case .vignette:
-            outputImage = applyVignetteFilter(to: ciImage)
+             kernelFunction = sepiaKernel
         }
 
-        guard let filteredImage = outputImage,
-              let cgOutputImage = CIContext().createCGImage(filteredImage, from: filteredImage.extent) else {
+        guard let commandQueue = device.makeCommandQueue(),
+              let pipeline = try? device.makeComputePipelineState(function: kernelFunction) else {
+            return nil
+        }
+
+        // Create a command buffer and compute encoder
+        let commandBuffer = commandQueue.makeCommandBuffer()
+        let computeEncoder = commandBuffer?.makeComputeCommandEncoder()
+
+        // Set the pipeline state and textures
+        computeEncoder?.setComputePipelineState(pipeline)
+        computeEncoder?.setTexture(metalTexture, index: 0)
+        computeEncoder?.setTexture(outputTexture, index: 1)
+
+        // Dispatch the compute kernel
+        let threadGroupSize = MTLSizeMake(16, 16, 1)
+        let threadGroups = MTLSizeMake(metalTexture.width / threadGroupSize.width,
+                                       metalTexture.height / threadGroupSize.height,
+                                       1)
+        computeEncoder?.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupSize)
+        computeEncoder?.endEncoding()
+
+        // Convert the output texture to UIImage
+        let outputImage = CIImage(mtlTexture: outputTexture, options: nil)
+        guard let cgOutputImage = ciContext.createCGImage(outputImage ?? CIImage(), from: outputImage?.extent ?? CGRect()) else {
             return nil
         }
 
         return UIImage(cgImage: cgOutputImage)
     }
+
 
     
     private func applySepiaFilter(to inputImage: CIImage) -> CIImage? {

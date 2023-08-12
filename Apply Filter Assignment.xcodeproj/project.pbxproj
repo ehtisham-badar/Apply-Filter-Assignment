@@ -17,6 +17,7 @@
 		FF384B732A87945200DE8433 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B722A87945200DE8433 /* FilterViewModel.swift */; };
 		FF384B752A8799AE00DE8433 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = FF384B742A8799AE00DE8433 /* gaussianBlur.metal */; };
 		FF384B772A8799E900DE8433 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B762A8799E900DE8433 /* FilterViewController.swift */; };
+		FF384B792A87B2AD00DE8433 /* sepiaFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = FF384B782A87B2AD00DE8433 /* sepiaFilter.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FF384B722A87945200DE8433 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		FF384B742A8799AE00DE8433 /* gaussianBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = gaussianBlur.metal; sourceTree = "<group>"; };
 		FF384B762A8799E900DE8433 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		FF384B782A87B2AD00DE8433 /* sepiaFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = sepiaFilter.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				FF384B742A8799AE00DE8433 /* gaussianBlur.metal */,
+				FF384B782A87B2AD00DE8433 /* sepiaFilter.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			files = (
 				FF384B772A8799E900DE8433 /* FilterViewController.swift in Sources */,
 				FF384B592A878AA900DE8433 /* ViewController.swift in Sources */,
+				FF384B792A87B2AD00DE8433 /* sepiaFilter.metal in Sources */,
 				FF384B552A878AA900DE8433 /* AppDelegate.swift in Sources */,
 				FF384B732A87945200DE8433 /* FilterViewModel.swift in Sources */,
 				FF384B572A878AA900DE8433 /* SceneDelegate.swift in Sources */,
