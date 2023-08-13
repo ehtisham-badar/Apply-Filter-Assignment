@@ -24,13 +24,18 @@ class FilterViewController: UIViewController {
             UIImageWriteToSavedPhotosAlbum(imageToSave, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
     }
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            // Handle the error
-            print("Error saving image: \(error.localizedDescription)")
+            let alert = UIAlertController(title: nil, message: "Error saving image: \(error.localizedDescription)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
         } else {
-            // Image saved successfully
-            print("Image saved successfully.")
+            let alert = UIAlertController(title: nil, message: "Image Saved Succesfully", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
         }
     }
 }

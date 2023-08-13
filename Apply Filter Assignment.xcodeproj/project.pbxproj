@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2357BA2A88BD7A00BBDD91 /* CollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2357B92A88BD7A00BBDD91 /* CollageViewController.swift */; };
 		FF384B552A878AA900DE8433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B542A878AA900DE8433 /* AppDelegate.swift */; };
 		FF384B572A878AA900DE8433 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B562A878AA900DE8433 /* SceneDelegate.swift */; };
 		FF384B592A878AA900DE8433 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF384B582A878AA900DE8433 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF2357B92A88BD7A00BBDD91 /* CollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageViewController.swift; sourceTree = "<group>"; };
 		FF384B512A878AA900DE8433 /* Apply Filter Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apply Filter Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF384B542A878AA900DE8433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF384B562A878AA900DE8433 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				FF384B762A8799E900DE8433 /* FilterViewController.swift */,
+				FF2357B92A88BD7A00BBDD91 /* CollageViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				FF384B772A8799E900DE8433 /* FilterViewController.swift in Sources */,
 				FF384B592A878AA900DE8433 /* ViewController.swift in Sources */,
 				FF384B792A87B2AD00DE8433 /* sepiaFilter.metal in Sources */,
+				FF2357BA2A88BD7A00BBDD91 /* CollageViewController.swift in Sources */,
 				FF384B552A878AA900DE8433 /* AppDelegate.swift in Sources */,
 				FF384B732A87945200DE8433 /* FilterViewModel.swift in Sources */,
 				FF384B572A878AA900DE8433 /* SceneDelegate.swift in Sources */,
