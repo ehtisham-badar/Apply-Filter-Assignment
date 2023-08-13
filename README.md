@@ -12,3 +12,9 @@ Each button representing a filter should display a thumbnail image showcasing th
 Utilize custom Metal shaders for applying filters.
 
 Prioritize performance and code reusability
+
+Technical assignment 2 
+
+Task: Create Collage Designs using UIBezierPath 
+
+Draw at least one of the collage designs provided below using UIBezierPath. Keep in mind that users can insert images into each section and have the flexibility to change them. 
