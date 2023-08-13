@@ -19,6 +19,20 @@ class FilterViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        if let imageToSave = imageView?.image {
+            UIImageWriteToSavedPhotosAlbum(imageToSave, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+    }
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // Handle the error
+            print("Error saving image: \(error.localizedDescription)")
+        } else {
+            // Image saved successfully
+            print("Image saved successfully.")
+        }
+    }
 }
 
 extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

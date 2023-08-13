@@ -95,7 +95,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Z4I-AJ-Ogk">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="9Aa-Ua-5mh"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Arx-i3-XDh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Arx-i3-XDh">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="BYZ-38-t0r" id="7ku-Vx-HNs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
