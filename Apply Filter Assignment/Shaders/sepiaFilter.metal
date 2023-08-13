@@ -14,6 +14,6 @@ kernel void applySepiaFilter(texture2d<float, access::read> inTexture [[texture(
     float4 color = inTexture.read(gid);
     float3 sepiaColor = float3(0.272, 0.534, 0.131);
     float3 sepiaFiltered = color.rgb * sepiaColor;
-    float3 filteredColor = mix(color.rgb, sepiaFiltered, 0.7); // Adjust intensity as needed
+    float3 filteredColor = mix(color.rgb, sepiaFiltered, 0.7);
     outTexture.write(float4(filteredColor, color.a), gid);
 }
