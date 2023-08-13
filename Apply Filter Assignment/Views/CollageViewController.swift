@@ -73,10 +73,6 @@ class CollageViewController: UIViewController, UINavigationControllerDelegate, U
         
         tappedImageView.image = selectedImage
     }
-
-
-
-
 }
 
 class DiagonalCollageView: UIView {
