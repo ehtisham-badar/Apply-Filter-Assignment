@@ -179,10 +179,36 @@
                     <view key="view" contentMode="scaleToFill" id="3xp-Be-Dn4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLLAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94Y-Ln-tCF">
+                                <rect key="frame" x="10" y="113" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjr-jg-gqv">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8CZ-lx-9Ov"/>
+                                    <constraint firstAttribute="height" constant="300" id="sFE-Gd-5ai"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YZn-lc-QpK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pjr-jg-gqv" firstAttribute="centerX" secondItem="3xp-Be-Dn4" secondAttribute="centerX" id="3nf-ZK-fWy"/>
+                            <constraint firstItem="94Y-Ln-tCF" firstAttribute="leading" secondItem="YZn-lc-QpK" secondAttribute="leading" constant="10" id="8ek-B7-gsn"/>
+                            <constraint firstItem="Pjr-jg-gqv" firstAttribute="centerY" secondItem="3xp-Be-Dn4" secondAttribute="centerY" id="HXI-fv-Zfd"/>
+                            <constraint firstItem="YZn-lc-QpK" firstAttribute="trailing" secondItem="94Y-Ln-tCF" secondAttribute="trailing" constant="10" id="IDI-H1-dIK"/>
+                            <constraint firstItem="94Y-Ln-tCF" firstAttribute="top" secondItem="YZn-lc-QpK" secondAttribute="top" constant="10" id="kIa-4B-otk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZI4-EG-Snx"/>
+                    <connections>
+                        <outlet property="collageView" destination="Pjr-jg-gqv" id="IaR-xj-Wyo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHv-0l-8mT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
